@@ -27,12 +27,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * List non-archived rooms for this group
-     * More info: https://www.hipchat.com/docs/apiv2/method/get_all_rooms
-     *
-     * @param array $params Query string parameter(s), for example: array('max-results' => 30)
-     *
-     * @return array
+     * @inheritdoc
      */
     public function getRooms($params = array())
     {
@@ -46,12 +41,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Gets room by id or name
-     * More info: https://www.hipchat.com/docs/apiv2/method/get_room
-     *
-     * @param string $id The id or name of the room
-     *
-     * @return Room
+     * @inheritdoc
      */
     public function getRoom($id)
     {
@@ -61,13 +51,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Fetch latest chat history for this room.
-     * More info: https://www.hipchat.com/docs/apiv2/method/view_recent_room_history
-     *
-     * @param string $id The id or name of the room
-     * @param array $params Query string parameter(s), for example: array('max-results' => 30)
-     *
-     * @return array
+     * @inheritdoc
      */
     public function getRecentHistory($id, $params = array())
     {
@@ -81,12 +65,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Creates a room
-     * More info: https://www.hipchat.com/docs/apiv2/method/create_room
-     *
-     * @param Room $room New room to be persisted
-     *
-     * @return integer Just created room id
+     * @inheritdoc
      */
     public function createRoom(RoomInterface $room)
     {
@@ -96,12 +75,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Updates a room
-     * More info: https://www.hipchat.com/docs/apiv2/method/update_room
-     *
-     * @param Room $room Existing room to be updated
-     *
-     * @return void
+     * @inheritdoc
      */
     public function updateRoom(RoomInterface $room)
     {
@@ -109,12 +83,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Deletes a room and kicks the current participants.
-     * More info: https://www.hipchat.com/docs/apiv2/method/delete_room
-     *
-     * @param string $id The id or name of the room.
-     *
-     * @return void
+     * @inheritdoc
      */
     public function deleteRoom($id)
     {
@@ -122,13 +91,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Send a room a notification
-     * More info: https://www.hipchat.com/docs/apiv2/method/send_room_notification
-     *
-     * @param string $id The id or name of the room
-     * @param Message $message The message to be sent
-     *
-     * @return void
+     * @inheritdoc
      */
     public function sendRoomNotification($id, MessageInterface $message)
     {
@@ -137,13 +100,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Adds a member to a private room
-     * More info: https://www.hipchat.com/docs/apiv2/method/add_member
-     *
-     * @param string $roomId The id or name of the room
-     * @param string $memberId The id, email address, or mention name (beginning with an '@') of the user
-     *
-     * @return void
+     * @inheritdoc
      */
     public function addMember($roomId, $memberId)
     {
@@ -151,13 +108,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Removes a member from a private room.
-     * More info: https://www.hipchat.com/docs/apiv2/method/remove_member
-     *
-     * @param string $roomId The id, email address, or mention name (beginning with an '@') of the user
-     * @param string $memberId The id or name of the room
-     *
-     * @return void
+     * @inheritdoc
      */
     public function removeMember($roomId, $memberId)
     {
@@ -165,14 +116,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Invites a member to a public room
-     * More info: https://www.hipchat.com/docs/apiv2/method/invite_user
-     *
-     * @param string $roomId The id or name of the room
-     * @param string $memberId The id, email address, or mention name (beginning with an '@') of the user
-     * @param string $reason The message displayed to a user when they are invited
-     *
-     * @return void
+     * @inheritdoc
      */
     public function inviteUser($roomId, $memberId, $reason)
     {
@@ -180,13 +124,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Set a topic on a room
-     * More info: https://www.hipchat.com/docs/apiv2/method/set_topic
-     *
-     * @param string $roomId The id or name of the room
-     * @param string $topic The topic to be set
-     *
-     * @return void
+     * @inheritdoc
      */
     public function setTopic($roomId, $topic)
     {
@@ -194,13 +132,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Creates a new webhook
-     * More info: https://www.hipchat.com/docs/apiv2/method/create_webhook
-     *
-     * @param string $roomId The id or name of the room
-     * @param Webhook $webhook The webhook to create
-     *
-     * @return int Just created webhook id
+     * @inheritdoc
      */
     public function createWebhook($roomId, WebhookInterface $webhook)
     {
@@ -210,13 +142,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Deletes a new webhook
-     * More info: https://www.hipchat.com/docs/apiv2/method/delete_webhook
-     *
-     * @param string $roomId The id or name of the room
-     * @param string $webhookId The id of the webhook to delete
-     *
-     * @return void
+     * @inheritdoc
      */
     public function deleteWebhook($roomId, $webhookId)
     {
@@ -224,12 +150,7 @@ class RoomAPI implements RoomAPIInterface
     }
 
     /**
-     * Gets all webhooks for this room
-     * More info: https://www.hipchat.com/docs/apiv2/method/get_all_webhooks
-     *
-     * @param string $roomId The id or name of the room
-     *
-     * @return array Array of Webhook
+     * @inheritdoc
      */
     public function getAllWebhooks($roomId)
     {

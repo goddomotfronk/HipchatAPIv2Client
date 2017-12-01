@@ -23,12 +23,7 @@ class UserAPI implements UserAPIInterface
     }
 
     /**
-     * List all users in the group
-     * More info: https://www.hipchat.com/docs/apiv2/method/get_all_users
-     *
-     * @param array $parameters The following are accepted: start-index, max-results, include-guests, include-deleted
-     *
-     * @return array of Users
+     * @inheritdoc
      */
     public function getAllUsers($parameters = array())
     {
@@ -43,12 +38,7 @@ class UserAPI implements UserAPIInterface
     }
 
     /**
-     * Gets user by id, email or mention name
-     * More info: https://www.hipchat.com/docs/apiv2/method/view_user
-     *
-     * @param string $userId The id, email address, or mention name (beginning with an '@') of the user to view
-     *
-     * @return User
+     * @inheritdoc
      */
     public function getUser($userId)
     {
@@ -58,13 +48,7 @@ class UserAPI implements UserAPIInterface
     }
 
     /**
-     * Creates a new user
-     * More info: https://www.hipchat.com/docs/apiv2/method/create_user
-     *
-     * @param User   $user     User to be created
-     * @param string $password User's password
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function createUser(UserInterface $user, $password)
     {
@@ -76,10 +60,7 @@ class UserAPI implements UserAPIInterface
     }
 
     /**
-     * Update a user
-     * More info: https://www.hipchat.com/docs/apiv2/method/update_user
-     *
-     * @param User $user User to be updated
+     * @inheritdoc
      */
     public function updateUser(UserInterface $user)
     {
@@ -88,9 +69,7 @@ class UserAPI implements UserAPIInterface
     }
 
     /**
-     * Delete a user.
-     *
-     * @param string $userId The id, email address, or mention name (beginning with an '@') of the user to delete
+     * @inheritdoc
      */
     public function deleteUser($userId)
     {
@@ -98,11 +77,7 @@ class UserAPI implements UserAPIInterface
     }
 
     /**
-     * Sends a user a private message
-     * More info: https://www.hipchat.com/docs/apiv2/method/private_message_user
-     *
-     * @param string $userId  The id, email address, or mention name (beginning with an '@') of the user to send a message to
-     * @param mixed  $message The message to send as plain text
+     * @inheritdoc
      */
     public function privateMessageUser($userId, $message)
     {
@@ -115,13 +90,7 @@ class UserAPI implements UserAPIInterface
     }
 
     /**
-     * Fetch latest chat history for the 1:1 chat with the user
-     * More info: https://www.hipchat.com/docs/apiv2/method/view_recent_privatechat_history
-     *
-     * @param string $userId     The id, email address, or mention name (beginning with an '@') of the user
-     * @param mixed  $parameters Optional parameters, check above documentation for more info
-     *
-     * @return array Message
+     * @inheritdoc
      */
     public function getRecentPrivateChatHistory($userId, array $parameters = array())
     {
@@ -139,14 +108,7 @@ class UserAPI implements UserAPIInterface
     }
 
     /**
-     * Fetch one specific message by id
-     * More info: https://www.hipchat.com/docs/apiv2/method/get_privatechat_message
-     *
-     * @param string $user       The id, email address, or mention name (beginning with an '@') of the user
-     * @param string $messageId  The id of the message to retrieve
-     * @param array  $parameters Optional parameters, check above documentation for more info
-     *
-     * @return Message
+     * @inheritdoc
      */
     public function getPrivateChatMessage($user, $messageId, array $parameters = array())
     {
@@ -161,13 +123,7 @@ class UserAPI implements UserAPIInterface
     }
 
     /**
-     * Gets a user photo
-     * More info: https://www.hipchat.com/docs/apiv2/method/get_photo
-     *
-     * @param string $userId The id, email address, or mention name (beginning with an '@') of the user
-     * @param string $size   The size to retrieve ("small" or "big")
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getPhoto($userId, $size)
     {

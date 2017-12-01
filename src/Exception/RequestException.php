@@ -31,9 +31,7 @@ class RequestException extends \Exception implements RequestExceptionInterface
     }
 
     /**
-     * Returns responseCode
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function getResponseCode()
     {
@@ -41,9 +39,7 @@ class RequestException extends \Exception implements RequestExceptionInterface
     }
 
     /**
-     * Returns type
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function getType()
     {

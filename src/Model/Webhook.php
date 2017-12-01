@@ -60,6 +60,9 @@ class Webhook implements WebhookInterface
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     public function parseJson($json)
     {
         $this->id = isset($json['id']) ? $json['id'] : null;
@@ -72,9 +75,7 @@ class Webhook implements WebhookInterface
 
 
     /**
-     * Serializes Webhook object
-     *
-     * @return array
+     * @inheritdoc
      */
     public function toJson()
     {
@@ -90,8 +91,7 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Gets the unique identifier for the created entity
-     * @return null|string
+     * @inheritdoc
      */
     public function getId()
     {
@@ -99,9 +99,7 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Sets the unique identifier for the created entity
-     * @param null|string $id
-     * @return self
+     * @inheritdoc
      */
     public function setId($id)
     {
@@ -110,19 +108,14 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Gets the event to listen for
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getEvent() {
         return $this->event;
     }
 
     /**
-     * Sets the event to listen for
-     *
-     * @param string $event
-     * @return self
+     * @inheritdoc
      */
     public function setEvent($event) {
         $this->event = $event;
@@ -130,8 +123,7 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Gets the URLs to retrieve webhook information
-     * @return array
+     * @inheritdoc
      */
     public function getLinks()
     {
@@ -139,9 +131,7 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Sets the URLs to retrieve webhook information
-     * @param array $links
-     * @return self
+     * @inheritdoc
      */
     public function setLinks($links)
     {
@@ -150,8 +140,7 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Gets the label for this webhook
-     * @return string
+     * @inheritdoc
      */
     public function getName()
     {
@@ -159,9 +148,7 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Sets the label for this webhook
-     * @param string $name
-     * @return self
+     * @inheritdoc
      */
     public function setName($name)
     {
@@ -170,8 +157,7 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Gets the regular expression pattern to match against messages.
-     * @return string
+     * @inheritdoc
      */
     public function getPattern()
     {
@@ -179,9 +165,7 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Sets the regular expression pattern to match against messages.
-     * @param string $pattern
-     * @return self
+     * @inheritdoc
      */
     public function setPattern($pattern)
     {
@@ -190,8 +174,7 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Gets the URL to send the webhook POST to
-     * @return string
+     * @inheritdoc
      */
     public function getUrl()
     {
@@ -199,14 +182,11 @@ class Webhook implements WebhookInterface
     }
 
     /**
-     * Sets the URL to send the webhook POST to
-     * @param string $url
-     * @return self
+     * @inheritdoc
      */
     public function setUrl($url)
     {
         $this->url = $url;
         return $this;
     }
-
 }

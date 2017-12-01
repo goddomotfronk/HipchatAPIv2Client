@@ -48,11 +48,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Parses response given by the API and maps the fields to Room object
-     *
-     * @param array $json json_decoded response in json given by the server
-     *
-     * @return void
+     * @inheritdoc
      */
     public function parseJson($json)
     {
@@ -78,9 +74,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Serializes Room object
-     *
-     * @return array
+     * @inheritdoc
      */
     public function toJson()
     {
@@ -104,11 +98,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets id
-     *
-     * @param integer $id The id to be set
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setId($id)
     {
@@ -117,9 +107,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns id
-     *
-     * @return integer
+     * @inheritdoc
      */
     public function getId()
     {
@@ -127,11 +115,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets XMPP/Jabber ID of the room
-     *
-     * @param string $xmppJid XMPP/Jabber ID of the room
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setXmppJid($xmppJid)
     {
@@ -140,9 +124,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns XMPP/Jabber ID of the room
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getXmppJid()
     {
@@ -150,11 +132,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets name of the room
-     *
-     * @param mixed $name Name of the room.
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setName($name)
     {
@@ -163,9 +141,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns Name of the room
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getName()
     {
@@ -173,11 +149,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets URLs to retrieve room information
-     *
-     * @param array $links URLs to retrieve room information
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setLinks($links)
     {
@@ -186,9 +158,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns URLs to retrieve room information
-     *
-     * @return array
+     * @inheritdoc
      */
     public function getLinks()
     {
@@ -196,11 +166,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets time the room was created in UTC
-     *
-     * @param \Datetime $created Time the room was created in UTC
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setCreated($created)
     {
@@ -209,9 +175,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns time the room was created in UTC
-     *
-     * @return \Datetime
+     * @inheritdoc
      */
     public function getCreated()
     {
@@ -219,11 +183,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets whether or not this room is archived
-     *
-     * @param boolean $archived Whether or not this room is archived
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setArchived($archived)
     {
@@ -232,9 +192,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns if is archived or not
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function isArchived()
     {
@@ -242,11 +200,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets Privacy setting
-     *
-     * @param string $privacy Privacy setting. Valid values: public | private
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setPrivacy($privacy)
     {
@@ -255,9 +209,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns privacy setting
-     *
-     * @return string public | private
+     * @inheritdoc
      */
     public function getPrivacy()
     {
@@ -265,11 +217,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets whether or not guests can access this room
-     *
-     * @param boolean $guestAccessible Whether or not guests can access this room
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setGuestAccessible($guestAccessible)
     {
@@ -278,9 +226,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns whether or not guests can access this room
-     *
-     * @return boolean
+     * @inheritdoc
      */
     public function isGuestAccessible()
     {
@@ -288,11 +234,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets current topic
-     *
-     * @param string $topic Current topic
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setTopic($topic)
     {
@@ -301,9 +243,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns current topic
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getTopic()
     {
@@ -311,11 +251,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets list of current room participants
-     *
-     * @param array $participants List of current room participants
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setParticipants($participants)
     {
@@ -324,9 +260,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns list of current room participants
-     *
-     * @return array of User
+     * @inheritdoc
      */
     public function getParticipants()
     {
@@ -334,11 +268,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets the room owner
-     *
-     * @param User $owner The room owner
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setOwner($owner)
     {
@@ -347,9 +277,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns the room owner
-     *
-     * @return User
+     * @inheritdoc
      */
     public function getOwner()
     {
@@ -357,11 +285,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Sets URL for guest access
-     *
-     * @param string $guestAccessUrl URL for guest access
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setGuestAccessUrl($guestAccessUrl)
     {
@@ -370,9 +294,7 @@ class Room implements RoomInterface
     }
 
     /**
-     * Returns URL for guest access, if enabled
-     *
-     * @return string | null
+     * @inheritdoc
      */
     public function getGuestAccessUrl()
     {

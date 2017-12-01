@@ -19,7 +19,7 @@ class OAuth2 implements AuthInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getCredential()
     {

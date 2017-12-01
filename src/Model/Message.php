@@ -45,6 +45,9 @@ class Message implements MessageInterface
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     public function parseJson($json)
     {
         $this->id = $json['id'];
@@ -58,9 +61,7 @@ class Message implements MessageInterface
 
 
     /**
-     * Serializes Message object
-     *
-     * @return array
+     * @inheritdoc
      */
     public function toJson()
     {
@@ -78,11 +79,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Sets background color for message
-     *
-     * @param string $color Background color for message
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setColor($color)
     {
@@ -91,9 +88,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Returns background color for message
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getColor()
     {
@@ -101,11 +96,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Sets the message body
-     *
-     * @param string $message The message body
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setMessage($message)
     {
@@ -114,9 +105,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Returns the message body
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getMessage()
     {
@@ -124,11 +113,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Sets whether or not this message should trigger a notification
-     *
-     * @param boolean $notify Whether or not this message should trigger a notification
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setNotify($notify)
     {
@@ -137,10 +122,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Returns whether or not this message should trigger a notification for people in the room
-     * (change the tab color, play a sound, etc). Each recipient's notification preferences are taken into account.
-     *
-     * @return boolean
+     * @inheritdoc
      */
     public function isNotify()
     {
@@ -148,11 +130,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Sets how the message is treated by the server and rendered inside HipChat applications
-     *
-     * @param string $messageFormat How the message is treated by the server and rendered inside HipChat applications
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setMessageFormat($messageFormat)
     {
@@ -161,9 +139,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Returns how the message is treated by the server and rendered inside HipChat applications
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getMessageFormat()
     {
@@ -171,11 +147,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Sets a label to be shown in addition to the sender's name
-     *
-     * @param string $from The label
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setFrom($from)
     {
@@ -184,9 +156,7 @@ class Message implements MessageInterface
     }
 
     /**
-     * Gets the label to be shown in addition to the sender's name
-     *
-     * @return string|array
+     * @inheritdoc
      */
     public function getFrom()
     {
