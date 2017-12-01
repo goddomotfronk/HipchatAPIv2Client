@@ -2,7 +2,7 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\Model;
 
-class Message
+class Message implements MessageInterface
 {
 
     protected $id = null;

@@ -2,7 +2,7 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\Model;
 
-class Room
+class Room implements RoomInterface
 {
     protected $id;
 

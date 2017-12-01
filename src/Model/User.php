@@ -2,7 +2,7 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\Model;
 
-class User
+class User implements UserInterface
 {
     protected $xmppJid;
 

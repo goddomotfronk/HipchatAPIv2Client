@@ -2,7 +2,7 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\Model;
 
-class Webhook
+class Webhook implements WebhookInterface
 {
 
     /**

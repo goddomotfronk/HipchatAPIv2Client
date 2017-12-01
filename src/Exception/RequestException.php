@@ -9,7 +9,7 @@
 namespace SolutionDrive\HipchatAPIv2Client\Exception;
 
 
-class RequestException extends \Exception
+class RequestException extends \Exception implements RequestExceptionInterface
 {
     protected $responseCode;
 
