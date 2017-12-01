@@ -10,8 +10,7 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\API;
 
-use SolutionDrive\HipchatAPIv2Client\Model\Message;
-use SolutionDrive\HipchatAPIv2Client\Model\User;
+use SolutionDrive\HipchatAPIv2Client\Model\MessageInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\UserInterface;
 
 interface UserAPIInterface
@@ -32,7 +31,7 @@ interface UserAPIInterface
      *
      * @param string $userId The id, email address, or mention name (beginning with an '@') of the user to view
      *
-     * @return User
+     * @return UserInterface
      */
     public function getUser($userId);
 
@@ -40,7 +39,7 @@ interface UserAPIInterface
      * Creates a new user
      * More info: https://www.hipchat.com/docs/apiv2/method/create_user
      *
-     * @param User $user User to be created
+     * @param UserInterface $user User to be created
      * @param string $password User's password
      *
      * @return mixed
@@ -51,7 +50,7 @@ interface UserAPIInterface
      * Update a user
      * More info: https://www.hipchat.com/docs/apiv2/method/update_user
      *
-     * @param User $user User to be updated
+     * @param UserInterface $user User to be updated
      */
     public function updateUser(UserInterface $user);
 
@@ -90,7 +89,7 @@ interface UserAPIInterface
      * @param string $messageId The id of the message to retrieve
      * @param array $parameters Optional parameters, check above documentation for more info
      *
-     * @return Message
+     * @return MessageInterface
      */
     public function getPrivateChatMessage($user, $messageId, array $parameters = array());
 
