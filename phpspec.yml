@@ -6,6 +6,8 @@ suites:
     spec_prefix: spec\
     spec_path: .
 
+formatter.name: dot
+
 extensions:
   LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
     format:
