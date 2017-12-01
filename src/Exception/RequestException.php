@@ -6,7 +6,7 @@
  * Time: 12:33
  */
 
-namespace GorkaLaucirica\HipchatAPIv2Client\Exception;
+namespace SolutionDrive\HipchatAPIv2Client\Exception;
 
 
 class RequestException extends \Exception

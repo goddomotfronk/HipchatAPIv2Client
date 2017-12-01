@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\GorkaLaucirica\HipchatAPIv2Client\Model;
+namespace spec\SolutionDrive\HipchatAPIv2Client\Model;
 
-use GorkaLaucirica\HipchatAPIv2Client\Model\Message;
+use SolutionDrive\HipchatAPIv2Client\Model\Message;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -10,7 +10,7 @@ class MessageSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('GorkaLaucirica\HipchatAPIv2Client\Model\Message');
+        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Model\Message');
     }
 
     function it_parses_full_json()

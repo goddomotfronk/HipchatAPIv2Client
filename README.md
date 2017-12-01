@@ -1,13 +1,15 @@
 #Hipchat v2 Api Client
 
+Based on [**gorkalaucirica/HipchatAPIv2Client**](https://github.com/gorkalaucirica/HipchatAPIv2Client)
+
 PHP Library to process calls to Hipchat's v2 REST API
 
 [![Latest Stable Version](https://poser.pugx.org/gorkalaucirica/hipchat-v2-api-client/v/stable.svg)](https://packagist.org/packages/gorkalaucirica/hipchat-v2-api-client)
 [![Total Downloads](https://poser.pugx.org/gorkalaucirica/hipchat-v2-api-client/downloads.svg)](https://packagist.org/packages/gorkalaucirica/hipchat-v2-api-client)
 [![Latest Unstable Version](https://poser.pugx.org/gorkalaucirica/hipchat-v2-api-client/v/unstable.svg)](https://packagist.org/packages/gorkalaucirica/hipchat-v2-api-client)
 [![License](https://poser.pugx.org/gorkalaucirica/hipchat-v2-api-client/license.svg)](https://packagist.org/packages/gorkalaucirica/hipchat-v2-api-client)
-[![Build Status](https://travis-ci.org/gorkalaucirica/HipchatAPIv2Client.svg?branch=master)](https://travis-ci.org/gorkalaucirica/HipchatAPIv2Client)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gorkalaucirica/HipchatAPIv2Client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gorkalaucirica/HipchatAPIv2Client/?branch=master)
+[![Build Status](https://travis-ci.org/solutionDrive/HipchatAPIv2Client.svg?branch=master)](https://travis-ci.org/solutionDrive/HipchatAPIv2Client)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/solutionDrive/HipchatAPIv2Client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/solutionDrive/HipchatAPIv2Client/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/6c8dd8cc-f8d8-4d1c-b089-d52dd29a1ef7/mini.png)](https://insight.sensiolabs.com/projects/6c8dd8cc-f8d8-4d1c-b089-d52dd29a1ef7)
 
 *This package is work in progress and some functionality is not available yet.*
@@ -25,8 +27,8 @@ All queries need the following two lines. The first one is to authenticate yours
 client that is used by the API classes to perform requests to the API. That is enough to start, now check the API calls
 section to see how to use the `$client` to send requests to the API.
 
-    use GorkaLaucirica\HipchatAPIv2Client\Auth\OAuth2;
-    use GorkaLaucirica\HipchatAPIv2Client\Client;
+    use SolutionDrive\HipchatAPIv2Client\Auth\OAuth2;
+    use SolutionDrive\HipchatAPIv2Client\Client;
 
     $auth = new OAuth2('tokenYouCanGetInHipchatSite');
     $client = new Client($auth);
@@ -45,14 +47,14 @@ API documentation. Some examples:
 
 ####Getting user by mention name:
 
-    use GorkaLaucirica\HipchatAPIv2Client\API\UserAPI;
+    use SolutionDrive\HipchatAPIv2Client\API\UserAPI;
 
     $userAPI = new UserAPI($client);
     $user = $userAPI->getUser('@gorkalaucirica');
 
 ####Getting all rooms
     
-    use GorkaLaucirica\HipchatAPIv2Client\API\RoomAPI;
+    use SolutionDrive\HipchatAPIv2Client\API\RoomAPI;
 
     $roomAPI = new RoomAPI($client);
     $room = $roomAPI->getRooms(array('max-results' => 30));

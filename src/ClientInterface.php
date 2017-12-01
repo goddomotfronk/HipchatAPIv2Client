@@ -8,7 +8,7 @@
  * @copyright: 2017 solutionDrive GmbH
  */
 
-namespace GorkaLaucirica\HipchatAPIv2Client;
+namespace SolutionDrive\HipchatAPIv2Client;
 
 interface ClientInterface
 {

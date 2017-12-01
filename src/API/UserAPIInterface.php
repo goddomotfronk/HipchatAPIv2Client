@@ -8,10 +8,10 @@
  * @copyright: 2017 solutionDrive GmbH
  */
 
-namespace GorkaLaucirica\HipchatAPIv2Client\API;
+namespace SolutionDrive\HipchatAPIv2Client\API;
 
-use GorkaLaucirica\HipchatAPIv2Client\Model\Message;
-use GorkaLaucirica\HipchatAPIv2Client\Model\User;
+use SolutionDrive\HipchatAPIv2Client\Model\Message;
+use SolutionDrive\HipchatAPIv2Client\Model\User;
 
 interface UserAPIInterface
 {

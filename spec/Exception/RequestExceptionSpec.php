@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\GorkaLaucirica\HipchatAPIv2Client\Exception;
+namespace spec\SolutionDrive\HipchatAPIv2Client\Exception;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -14,7 +14,7 @@ class RequestExceptionSpec extends ObjectBehavior
     }
     function it_is_initializable()
     {
-        $this->shouldHaveType('GorkaLaucirica\HipchatAPIv2Client\Exception\RequestException');
+        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Exception\RequestException');
     }
 
     function it_returns_error_code()

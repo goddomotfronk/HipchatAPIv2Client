@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\GorkaLaucirica\HipchatAPIv2Client\API;
+namespace spec\SolutionDrive\HipchatAPIv2Client\API;
 
-use GorkaLaucirica\HipchatAPIv2Client\ClientInterface;
-use GorkaLaucirica\HipchatAPIv2Client\Model\Message;
-use GorkaLaucirica\HipchatAPIv2Client\Model\Room;
-use GorkaLaucirica\HipchatAPIv2Client\Model\Webhook;
+use SolutionDrive\HipchatAPIv2Client\ClientInterface;
+use SolutionDrive\HipchatAPIv2Client\Model\Message;
+use SolutionDrive\HipchatAPIv2Client\Model\Room;
+use SolutionDrive\HipchatAPIv2Client\Model\Webhook;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -18,7 +18,7 @@ class RoomAPISpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('GorkaLaucirica\HipchatAPIv2Client\API\RoomAPI');
+        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\API\RoomAPI');
     }
 
     function it_gets_rooms(ClientInterface $client)
@@ -35,7 +35,7 @@ class RoomAPISpec extends ObjectBehavior
         $response = $this->getResourceResponse();
         $client->get("/v2/room/$id")->shouldBeCalled()->willReturn($response);
 
-        $this->getRoom($id)->shouldReturnAnInstanceOf('GorkaLaucirica\HipchatAPIv2Client\Model\Room');
+        $this->getRoom($id)->shouldReturnAnInstanceOf('SolutionDrive\HipchatAPIv2Client\Model\Room');
     }
 
     function it_gets_room_history(ClientInterface $client)

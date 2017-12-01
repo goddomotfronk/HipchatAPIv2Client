@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\GorkaLaucirica\HipchatAPIv2Client;
+namespace spec\SolutionDrive\HipchatAPIv2Client;
 
-use GorkaLaucirica\HipchatAPIv2Client\Auth\AuthInterface;
+use SolutionDrive\HipchatAPIv2Client\Auth\AuthInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -15,6 +15,6 @@ class ClientSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('GorkaLaucirica\HipchatAPIv2Client\Client');
+        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Client');
     }
 }
