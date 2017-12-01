@@ -1,6 +1,6 @@
 <?php
 
-namespace GorkaLaucirica\HipchatAPIv2Client\Model;
+namespace SolutionDrive\HipchatAPIv2Client\Model;
 
 class Room
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\GorkaLaucirica\HipchatAPIv2Client\API;
+namespace spec\SolutionDrive\HipchatAPIv2Client\API;
 
-use GorkaLaucirica\HipchatAPIv2Client\ClientInterface;
-use GorkaLaucirica\HipchatAPIv2Client\Model\User;
+use SolutionDrive\HipchatAPIv2Client\ClientInterface;
+use SolutionDrive\HipchatAPIv2Client\Model\User;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -16,7 +16,7 @@ class UserAPISpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('GorkaLaucirica\HipchatAPIv2Client\API\UserAPI');
+        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\API\UserAPI');
     }
 
     function it_gets_all_users(ClientInterface $ClientInterface)
@@ -37,7 +37,7 @@ class UserAPISpec extends ObjectBehavior
         $response = $this->getTestResponse();
         $ClientInterface->get("/v2/user/$mentionName")->shouldBeCalled()->willReturn($response);
 
-        $this->getUser($mentionName)->shouldReturnAnInstanceOf('GorkaLaucirica\HipchatAPIv2Client\Model\User');
+        $this->getUser($mentionName)->shouldReturnAnInstanceOf('SolutionDrive\HipchatAPIv2Client\Model\User');
     }
 
     function it_creates_user(ClientInterface $ClientInterface, User $user)

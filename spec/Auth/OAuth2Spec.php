@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\GorkaLaucirica\HipchatAPIv2Client\Auth;
+namespace spec\SolutionDrive\HipchatAPIv2Client\Auth;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -14,7 +14,7 @@ class OAuth2Spec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('GorkaLaucirica\HipchatAPIv2Client\Auth\OAuth2');
+        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Auth\OAuth2');
     }
 
     function it_returns_credential()

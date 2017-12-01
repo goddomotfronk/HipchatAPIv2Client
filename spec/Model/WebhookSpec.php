@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\GorkaLaucirica\HipchatAPIv2Client\Model;
+namespace spec\SolutionDrive\HipchatAPIv2Client\Model;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -9,7 +9,7 @@ class WebhookSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('GorkaLaucirica\HipchatAPIv2Client\Model\Webhook');
+        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Model\Webhook');
     }
 
     function it_parses_full_json()
