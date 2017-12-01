@@ -19,7 +19,7 @@ PHP Library to process calls to Hipchat's v2 REST API
 The recommended way to install Hipchatv2ApiClient is through [Composer](https://getcomposer.org).
 To install this library, run the command below and you will get the latest version:
 
-    composer require gorkalaucirica/hipchat-v2-api-client
+    composer require solutiondrive/hipchat-v2-api-client
     
 ##Usage
 
