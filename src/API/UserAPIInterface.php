@@ -12,6 +12,7 @@ namespace SolutionDrive\HipchatAPIv2Client\API;
 
 use SolutionDrive\HipchatAPIv2Client\Model\Message;
 use SolutionDrive\HipchatAPIv2Client\Model\User;
+use SolutionDrive\HipchatAPIv2Client\Model\UserInterface;
 
 interface UserAPIInterface
 {
@@ -44,7 +45,7 @@ interface UserAPIInterface
      *
      * @return mixed
      */
-    public function createUser(User $user, $password);
+    public function createUser(UserInterface $user, $password);
 
     /**
      * Update a user
@@ -52,7 +53,7 @@ interface UserAPIInterface
      *
      * @param User $user User to be updated
      */
-    public function updateUser(User $user);
+    public function updateUser(UserInterface $user);
 
     /**
      * Delete a user.

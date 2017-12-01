@@ -3,9 +3,9 @@
 namespace spec\SolutionDrive\HipchatAPIv2Client\API;
 
 use SolutionDrive\HipchatAPIv2Client\ClientInterface;
-use SolutionDrive\HipchatAPIv2Client\Model\Message;
-use SolutionDrive\HipchatAPIv2Client\Model\Room;
-use SolutionDrive\HipchatAPIv2Client\Model\Webhook;
+use SolutionDrive\HipchatAPIv2Client\Model\MessageInterface;
+use SolutionDrive\HipchatAPIv2Client\Model\RoomInterface;
+use SolutionDrive\HipchatAPIv2Client\Model\WebhookInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -47,7 +47,7 @@ class RoomAPISpec extends ObjectBehavior
         $this->getRecentHistory($id)->shouldHaveCount(2);
     }
 
-    function it_creates_room(ClientInterface $client, Room $room)
+    function it_creates_room(ClientInterface $client, RoomInterface $room)
     {
         $request = array(
             'name' => 'Test name', 'privacy' => 'private', 'guest_access' => false,
@@ -58,7 +58,7 @@ class RoomAPISpec extends ObjectBehavior
         $this->createRoom($room);
     }
 
-    function it_updates_room(ClientInterface $client, Room $room)
+    function it_updates_room(ClientInterface $client, RoomInterface $room)
     {
         $request = array(
             'name' => 'Test name', 'is_archived' => false, 'privacy' => 'private', 'is_guest_accessible' => false,
@@ -76,7 +76,7 @@ class RoomAPISpec extends ObjectBehavior
         $this->deleteRoom('123456');
     }
 
-    function it_sends_room_notification(ClientInterface $client, Message $message)
+    function it_sends_room_notification(ClientInterface $client, MessageInterface $message)
     {
         $request = array(
             "color" => "gray", "message" => "This is a test!!", 'notify' => false, 'message_format' => 'html'
@@ -110,7 +110,7 @@ class RoomAPISpec extends ObjectBehavior
         $this->setTopic(665432, 'New topic');
     }
 
-    function it_creates_webhook(ClientInterface $client, Webhook $webhook) {
+    function it_creates_webhook(ClientInterface $client, WebhookInterface $webhook) {
         $request = array(
             'url' => 'http://example.com/webhook',
             'pattern' => '/phpspec/',
@@ -127,7 +127,7 @@ class RoomAPISpec extends ObjectBehavior
         $this->deleteWebhook('123456', '112233');
     }
 
-    function it_gets_webhooks(ClientInterface $client, Webhook $webhook) {
+    function it_gets_webhooks(ClientInterface $client) {
         $response = $this->getWebhookArrayResponse();
         $client->get('/v2/room/234567/webhook')->shouldBeCalled()->willReturn($response);
         $this->getAllWebhooks('234567')->shouldHaveCount(2);

@@ -11,8 +11,11 @@
 namespace SolutionDrive\HipchatAPIv2Client\API;
 
 use SolutionDrive\HipchatAPIv2Client\Model\Message;
+use SolutionDrive\HipchatAPIv2Client\Model\MessageInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\Room;
+use SolutionDrive\HipchatAPIv2Client\Model\RoomInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\Webhook;
+use SolutionDrive\HipchatAPIv2Client\Model\WebhookInterface;
 
 interface RoomAPIInterface
 {
@@ -55,7 +58,7 @@ interface RoomAPIInterface
      *
      * @return integer Just created room id
      */
-    public function createRoom(Room $room);
+    public function createRoom(RoomInterface $room);
 
     /**
      * Updates a room
@@ -65,7 +68,7 @@ interface RoomAPIInterface
      *
      * @return void
      */
-    public function updateRoom(Room $room);
+    public function updateRoom(RoomInterface $room);
 
     /**
      * Deletes a room and kicks the current participants.
@@ -86,7 +89,7 @@ interface RoomAPIInterface
      *
      * @return void
      */
-    public function sendRoomNotification($id, Message $message);
+    public function sendRoomNotification($id, MessageInterface $message);
 
     /**
      * Adds a member to a private room
@@ -142,7 +145,7 @@ interface RoomAPIInterface
      *
      * @return int Just created webhook id
      */
-    public function createWebhook($roomId, Webhook $webhook);
+    public function createWebhook($roomId, WebhookInterface $webhook);
 
     /**
      * Deletes a new webhook

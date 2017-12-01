@@ -4,8 +4,11 @@ namespace SolutionDrive\HipchatAPIv2Client\API;
 
 use SolutionDrive\HipchatAPIv2Client\ClientInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\Message;
+use SolutionDrive\HipchatAPIv2Client\Model\MessageInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\Room;
+use SolutionDrive\HipchatAPIv2Client\Model\RoomInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\Webhook;
+use SolutionDrive\HipchatAPIv2Client\Model\WebhookInterface;
 
 
 class RoomAPI implements RoomAPIInterface
@@ -85,7 +88,7 @@ class RoomAPI implements RoomAPIInterface
      *
      * @return integer Just created room id
      */
-    public function createRoom(Room $room)
+    public function createRoom(RoomInterface $room)
     {
         $response = $this->client->post("/v2/room", $room->toJson());
 
@@ -100,7 +103,7 @@ class RoomAPI implements RoomAPIInterface
      *
      * @return void
      */
-    public function updateRoom(Room $room)
+    public function updateRoom(RoomInterface $room)
     {
         $this->client->put(sprintf("/v2/room/%s", $room->getId()), $room->toJson());
     }
@@ -127,7 +130,7 @@ class RoomAPI implements RoomAPIInterface
      *
      * @return void
      */
-    public function sendRoomNotification($id, Message $message)
+    public function sendRoomNotification($id, MessageInterface $message)
     {
         $id = rawurlencode($id);
         $this->client->post("/v2/room/$id/notification", $message->toJson());
@@ -199,7 +202,7 @@ class RoomAPI implements RoomAPIInterface
      *
      * @return int Just created webhook id
      */
-    public function createWebhook($roomId, Webhook $webhook)
+    public function createWebhook($roomId, WebhookInterface $webhook)
     {
         $response = $this->client->post(sprintf('/v2/room/%s/webhook', $roomId), $webhook->toJson());
 

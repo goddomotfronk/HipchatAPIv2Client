@@ -5,6 +5,7 @@ namespace SolutionDrive\HipchatAPIv2Client\API;
 use SolutionDrive\HipchatAPIv2Client\ClientInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\User;
 use SolutionDrive\HipchatAPIv2Client\Model\Message;
+use SolutionDrive\HipchatAPIv2Client\Model\UserInterface;
 
 class UserAPI implements UserAPIInterface
 {
@@ -65,7 +66,7 @@ class UserAPI implements UserAPIInterface
      *
      * @return mixed
      */
-    public function createUser(User $user, $password)
+    public function createUser(UserInterface $user, $password)
     {
         $request = $user->toJson();
         $request['password'] = $password;
@@ -80,7 +81,7 @@ class UserAPI implements UserAPIInterface
      *
      * @param User $user User to be updated
      */
-    public function updateUser(User $user)
+    public function updateUser(UserInterface $user)
     {
         $request = $user->toJson();
         $this->client->put(sprintf('/v2/user/%s', $user->getId()), $request);
