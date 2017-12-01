@@ -1,6 +1,7 @@
 vendor/
 bin/
 coverage/
+coverage.xml
 
 composer.phar
 composer.lock

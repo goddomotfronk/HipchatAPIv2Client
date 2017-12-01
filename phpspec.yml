@@ -7,4 +7,12 @@ suites:
     spec_path: .
 
 extensions:
-  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
+  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+    format:
+      - html
+      - clover
+    output:
+      html: coverage
+      clover: coverage.xml
+    lower_upper_bound: 50
+    high_lower_bound: 90
