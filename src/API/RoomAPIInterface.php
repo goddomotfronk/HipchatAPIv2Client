@@ -161,7 +161,6 @@ interface RoomAPIInterface
      *
      * @param string $roomId The id or name of the room
      *
-     * @TODO should return a Collection
      * @return array Array of Webhook
      */
     public function getAllWebhooks($roomId);

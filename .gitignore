@@ -4,6 +4,3 @@ coverage/
 
 composer.phar
 composer.lock
-
-### JetBrains IDE ###
-.idea/
