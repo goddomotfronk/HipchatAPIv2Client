@@ -1,6 +1,7 @@
 vendor/
 bin/
 coverage/
+coverage.clover
 
 composer.phar
 composer.lock
