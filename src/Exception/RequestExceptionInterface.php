@@ -10,7 +10,7 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\Exception;
 
-interface RequestExceptionInterface extends \Throwable
+interface RequestExceptionInterface
 {
     /**
      * Returns responseCode
