@@ -107,6 +107,16 @@ class UserAPISpec extends ObjectBehavior
             ->shouldReturn([]);
     }
 
+    function it_will_get_a_photo_in_a_specific_size(
+        ClientInterface $client
+    ) {
+        $client->get('/v2/user/123456/photo/big')
+            ->willReturn('beautiful photo!');
+
+        $this->getPhoto('123456', 'big')
+            ->shouldReturn('beautiful photo!');
+    }
+
     protected function getTestResponse()
     {
         return array(
