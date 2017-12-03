@@ -4,6 +4,8 @@ namespace spec\SolutionDrive\HipchatAPIv2Client\Auth;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use SolutionDrive\HipchatAPIv2Client\Auth\AuthInterface;
+use SolutionDrive\HipchatAPIv2Client\Auth\OAuth2;
 
 class OAuth2Spec extends ObjectBehavior
 {
@@ -14,7 +16,9 @@ class OAuth2Spec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Auth\OAuth2');
+        $this->shouldHaveType(OAuth2::class);
+
+        $this->shouldImplement(AuthInterface::class);
     }
 
     function it_returns_credential()

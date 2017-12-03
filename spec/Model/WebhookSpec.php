@@ -4,12 +4,16 @@ namespace spec\SolutionDrive\HipchatAPIv2Client\Model;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use SolutionDrive\HipchatAPIv2Client\Model\Webhook;
+use SolutionDrive\HipchatAPIv2Client\Model\WebhookInterface;
 
 class WebhookSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Model\Webhook');
+        $this->shouldHaveType(Webhook::class);
+
+        $this->shouldImplement(WebhookInterface::class);
     }
 
     function it_parses_full_json()

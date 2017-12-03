@@ -5,6 +5,8 @@ namespace spec\SolutionDrive\HipchatAPIv2Client;
 use SolutionDrive\HipchatAPIv2Client\Auth\AuthInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use SolutionDrive\HipchatAPIv2Client\Client;
+use SolutionDrive\HipchatAPIv2Client\ClientInterface;
 
 class ClientSpec extends ObjectBehavior
 {
@@ -15,6 +17,8 @@ class ClientSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Client');
+        $this->shouldHaveType(Client::class);
+
+        $this->shouldImplement(ClientInterface::class);
     }
 }

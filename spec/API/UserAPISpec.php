@@ -2,6 +2,8 @@
 
 namespace spec\SolutionDrive\HipchatAPIv2Client\API;
 
+use SolutionDrive\HipchatAPIv2Client\API\UserAPI;
+use SolutionDrive\HipchatAPIv2Client\API\UserAPIInterface;
 use SolutionDrive\HipchatAPIv2Client\ClientInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\MessageInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\UserInterface;
@@ -17,7 +19,9 @@ class UserAPISpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\API\UserAPI');
+        $this->shouldHaveType(UserAPI::class);
+
+        $this->shouldImplement(UserAPIInterface::class);
     }
 
     function it_gets_all_users(ClientInterface $ClientInterface)

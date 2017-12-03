@@ -2,6 +2,8 @@
 
 namespace spec\SolutionDrive\HipchatAPIv2Client\Model;
 
+use SolutionDrive\HipchatAPIv2Client\Model\Room;
+use SolutionDrive\HipchatAPIv2Client\Model\RoomInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\User;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -10,7 +12,9 @@ class RoomSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Model\Room');
+        $this->shouldHaveType(Room::class);
+
+        $this->shouldImplement(RoomInterface::class);
     }
 
     function it_parses_full_json()

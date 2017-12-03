@@ -4,6 +4,8 @@ namespace spec\SolutionDrive\HipchatAPIv2Client\Exception;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use SolutionDrive\HipchatAPIv2Client\Exception\RequestException;
+use SolutionDrive\HipchatAPIv2Client\Exception\RequestExceptionInterface;
 
 class RequestExceptionSpec extends ObjectBehavior
 {
@@ -14,7 +16,9 @@ class RequestExceptionSpec extends ObjectBehavior
     }
     function it_is_initializable()
     {
-        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\Exception\RequestException');
+        $this->shouldHaveType(RequestException::class);
+
+        $this->shouldImplement(RequestExceptionInterface::class);
     }
 
     function it_returns_error_code()
