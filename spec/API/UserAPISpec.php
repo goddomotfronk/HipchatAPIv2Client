@@ -107,6 +107,18 @@ class UserAPISpec extends ObjectBehavior
             ->shouldReturn([]);
     }
 
+    function it_will_get_a_private_chat_message(
+        ClientInterface $client
+    ) {
+        $client->get('/v2/user/123456/history/654321', [])
+            ->willReturn([
+                'message' => null
+            ]);
+
+        $this->getPrivateChatMessage('123456', '654321', [])
+            ->shouldReturnAnInstanceOf(MessageInterface::class);
+    }
+
     function it_will_get_a_photo_in_a_specific_size(
         ClientInterface $client
     ) {
