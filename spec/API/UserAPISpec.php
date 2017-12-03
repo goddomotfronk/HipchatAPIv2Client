@@ -3,7 +3,7 @@
 namespace spec\SolutionDrive\HipchatAPIv2Client\API;
 
 use SolutionDrive\HipchatAPIv2Client\ClientInterface;
-use SolutionDrive\HipchatAPIv2Client\Model\User;
+use SolutionDrive\HipchatAPIv2Client\Model\UserInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -40,7 +40,7 @@ class UserAPISpec extends ObjectBehavior
         $this->getUser($mentionName)->shouldReturnAnInstanceOf('SolutionDrive\HipchatAPIv2Client\Model\User');
     }
 
-    function it_creates_user(ClientInterface $ClientInterface, User $user)
+    function it_creates_user(ClientInterface $ClientInterface, UserInterface $user)
     {
         $request = array(
             'name' => 'Test', 'title' => 'Tester', 'mention_name' => 'test', 'is_group_admin' => false,
@@ -52,7 +52,7 @@ class UserAPISpec extends ObjectBehavior
         $this->createUser($user, 'test1234')->shouldReturn('123456');
     }
 
-    function it_updates_user(ClientInterface $ClientInterface, User $user)
+    function it_updates_user(ClientInterface $ClientInterface, UserInterface $user)
     {
         $request = array(
             'id' => '123456', 'name' => 'Test', 'title' => 'Tester', 'mention_name' => 'test',

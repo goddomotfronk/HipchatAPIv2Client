@@ -2,7 +2,7 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\Model;
 
-class User
+class User implements UserInterface
 {
     protected $xmppJid;
 
@@ -52,11 +52,7 @@ class User
     }
 
     /**
-     * Parses response given by the API and maps the fields to User object
-     *
-     * @param array $json json_decoded response in json given by the server
-     *
-     * @return void
+     * @inheritdoc
      */
     public function parseJson($json)
     {
@@ -80,6 +76,9 @@ class User
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     public function toJson()
     {
         $json = array();
@@ -94,11 +93,7 @@ class User
     }
 
     /**
-     * Sets XMPP/Jabber ID of the user.
-     *
-     * @param string $xmppJid XMPP/Jabber ID of the user
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setXmppJid($xmppJid)
     {
@@ -107,9 +102,7 @@ class User
     }
 
     /**
-     * Returns XMPP/Jabber ID of the user.
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getXmppJid()
     {
@@ -117,11 +110,7 @@ class User
     }
 
     /**
-     * Sets whether the user has been deleted or not
-     *
-     * @param boolean $deleted Whether the user has been deleted or not
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setDeleted($deleted)
     {
@@ -130,9 +119,7 @@ class User
     }
 
     /**
-     * Returns whether the user has been deleted or not
-     *
-     * @return boolean
+     * @inheritdoc
      */
     public function isDeleted()
     {
@@ -140,11 +127,7 @@ class User
     }
 
     /**
-     * Sets user's full name
-     *
-     * @param string $name User's full name
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setName($name)
     {
@@ -153,9 +136,7 @@ class User
     }
 
     /**
-     * Returns user's full name
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getName()
     {
@@ -163,11 +144,7 @@ class User
     }
 
     /**
-     * Sets when the user was last active
-     *
-     * @param \Datetime $lastActive When the user was last active
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setLastActive($lastActive)
     {
@@ -176,9 +153,7 @@ class User
     }
 
     /**
-     * Returns when the user was last active
-     *
-     * @return \Datetime
+     * @inheritdoc
      */
     public function getLastActive()
     {
@@ -186,11 +161,7 @@ class User
     }
 
     /**
-     * Sets user's title
-     *
-     * @param mixed $title User's title
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setTitle($title)
     {
@@ -199,9 +170,7 @@ class User
     }
 
     /**
-     * Returns user's title
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function getTitle()
     {
@@ -209,11 +178,7 @@ class User
     }
 
     /**
-     * Sets when the user was created
-     *
-     * @param \Datetime $created When the user was created
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setCreated($created)
     {
@@ -222,9 +187,7 @@ class User
     }
 
     /**
-     * Returns when the user was created
-     *
-     * @return \Datetime
+     * @inheritdoc
      */
     public function getCreated()
     {
@@ -232,11 +195,7 @@ class User
     }
 
     /**
-     * Sets user's ID
-     *
-     * @param mixed $id User's ID
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setId($id)
     {
@@ -245,9 +204,7 @@ class User
     }
 
     /**
-     * Returns user's ID
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function getId()
     {
@@ -255,11 +212,7 @@ class User
     }
 
     /**
-     * Sets user's @mention name
-     *
-     * @param mixed $mentionName User's @mention name
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setMentionName($mentionName)
     {
@@ -268,9 +221,7 @@ class User
     }
 
     /**
-     * Returns user's @mention name
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function getMentionName()
     {
@@ -278,11 +229,7 @@ class User
     }
 
     /**
-     * Sets whether or not this user is an admin of the group
-     *
-     * @param boolean $groupAdmin Whether or not this user is an admin of the group
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setGroupAdmin($groupAdmin)
     {
@@ -291,9 +238,7 @@ class User
     }
 
     /**
-     * Returns whether or not this user is an admin of the group
-     *
-     * @return boolean
+     * @inheritdoc
      */
     public function isGroupAdmin()
     {
@@ -301,11 +246,7 @@ class User
     }
 
     /**
-     * Sets the desired user timezone
-     *
-     * @param string $timezone The desired user timezone
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setTimezone($timezone)
     {
@@ -314,9 +255,7 @@ class User
     }
 
     /**
-     * Returns the desired user timezone
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function getTimezone()
     {
@@ -324,11 +263,7 @@ class User
     }
 
     /**
-     * Sets whether or not this user is a guest or registered user
-     *
-     * @param boolean $guest Whether or not this user is a guest or registered user
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setGuest($guest)
     {
@@ -337,9 +272,7 @@ class User
     }
 
     /**
-     * Returns whether or not this user is a guest or registered user
-     *
-     * @return boolean
+     * @inheritdoc
      */
     public function isGuest()
     {
@@ -347,11 +280,7 @@ class User
     }
 
     /**
-     * Sets user's email
-     *
-     * @param string $email User's email
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setEmail($email)
     {
@@ -360,9 +289,7 @@ class User
     }
 
     /**
-     * Returns user's email
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getEmail()
     {
@@ -370,11 +297,7 @@ class User
     }
 
     /**
-     * Sets URL to user's photo.
-     *
-     * @param string $photoUrl URL to user's photo
-     *
-     * @return self
+     * @inheritdoc
      */
     public function setPhotoUrl($photoUrl)
     {
@@ -383,9 +306,7 @@ class User
     }
 
     /**
-     * Returns URL to user's photo. 125px on the longest side
-     *
-     * @return string
+     * @inheritdoc
      */
     public function getPhotoUrl()
     {

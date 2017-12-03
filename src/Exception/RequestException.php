@@ -9,7 +9,7 @@
 namespace SolutionDrive\HipchatAPIv2Client\Exception;
 
 
-class RequestException extends \Exception
+class RequestException extends \Exception implements RequestExceptionInterface
 {
     protected $responseCode;
 
@@ -31,9 +31,7 @@ class RequestException extends \Exception
     }
 
     /**
-     * Returns responseCode
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function getResponseCode()
     {
@@ -41,9 +39,7 @@ class RequestException extends \Exception
     }
 
     /**
-     * Returns type
-     *
-     * @return mixed
+     * @inheritdoc
      */
     public function getType()
     {

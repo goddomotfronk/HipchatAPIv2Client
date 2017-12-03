@@ -10,9 +10,9 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\API;
 
-use SolutionDrive\HipchatAPIv2Client\Model\Message;
-use SolutionDrive\HipchatAPIv2Client\Model\Room;
-use SolutionDrive\HipchatAPIv2Client\Model\Webhook;
+use SolutionDrive\HipchatAPIv2Client\Model\MessageInterface;
+use SolutionDrive\HipchatAPIv2Client\Model\RoomInterface;
+use SolutionDrive\HipchatAPIv2Client\Model\WebhookInterface;
 
 interface RoomAPIInterface
 {
@@ -32,7 +32,7 @@ interface RoomAPIInterface
      *
      * @param string $id The id or name of the room
      *
-     * @return Room
+     * @return RoomInterface
      */
     public function getRoom($id);
 
@@ -51,21 +51,21 @@ interface RoomAPIInterface
      * Creates a room
      * More info: https://www.hipchat.com/docs/apiv2/method/create_room
      *
-     * @param Room $room New room to be persisted
+     * @param RoomInterface $room New room to be persisted
      *
      * @return integer Just created room id
      */
-    public function createRoom(Room $room);
+    public function createRoom(RoomInterface $room);
 
     /**
      * Updates a room
      * More info: https://www.hipchat.com/docs/apiv2/method/update_room
      *
-     * @param Room $room Existing room to be updated
+     * @param RoomInterface $room Existing room to be updated
      *
      * @return void
      */
-    public function updateRoom(Room $room);
+    public function updateRoom(RoomInterface $room);
 
     /**
      * Deletes a room and kicks the current participants.
@@ -82,11 +82,11 @@ interface RoomAPIInterface
      * More info: https://www.hipchat.com/docs/apiv2/method/send_room_notification
      *
      * @param string $id The id or name of the room
-     * @param Message $message The message to be sent
+     * @param MessageInterface $message The message to be sent
      *
      * @return void
      */
-    public function sendRoomNotification($id, Message $message);
+    public function sendRoomNotification($id, MessageInterface $message);
 
     /**
      * Adds a member to a private room
@@ -138,11 +138,11 @@ interface RoomAPIInterface
      * More info: https://www.hipchat.com/docs/apiv2/method/create_webhook
      *
      * @param string $roomId The id or name of the room
-     * @param Webhook $webhook The webhook to create
+     * @param WebhookInterface $webhook The webhook to create
      *
      * @return int Just created webhook id
      */
-    public function createWebhook($roomId, Webhook $webhook);
+    public function createWebhook($roomId, WebhookInterface $webhook);
 
     /**
      * Deletes a new webhook
