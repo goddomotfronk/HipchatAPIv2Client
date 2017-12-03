@@ -3,6 +3,7 @@
 namespace spec\SolutionDrive\HipchatAPIv2Client\API;
 
 use SolutionDrive\HipchatAPIv2Client\ClientInterface;
+use SolutionDrive\HipchatAPIv2Client\Model\MessageInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\UserInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -75,6 +76,19 @@ class UserAPISpec extends ObjectBehavior
     {
         $ClientInterface->post('/v2/user/123456/message', array('message' => 'Im testing!!'))->shouldBeCalled();
         $this->privateMessageUser('123456', 'Im testing!!');
+    }
+
+    function it_sends_private_message_user_with_message_object(
+        ClientInterface $ClientInterface,
+        MessageInterface $message
+    ) {
+        $message->toJson()
+            ->willReturn(['message' => 'Im testing message object!!']);
+
+        $ClientInterface->post('/v2/user/123456/message', ['message' => 'Im testing message object!!'])
+            ->shouldBeCalled();
+
+        $this->privateMessageUser('123456', $message);
     }
 
     protected function getTestResponse()
