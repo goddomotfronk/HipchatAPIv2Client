@@ -107,6 +107,21 @@ class UserAPISpec extends ObjectBehavior
             ->shouldReturn([]);
     }
 
+    function it_will_return_a_array_for_chat_history(
+        ClientInterface $client
+    ) {
+        $client->get('/v2/user/123456/history/latest', [])
+            ->willReturn([
+                'items' => [
+                    null,
+                    null
+                ]
+            ]);
+
+        $this->getRecentPrivateChatHistory('123456', [])
+            ->shouldBeArray();
+    }
+
     function it_will_get_a_private_chat_message(
         ClientInterface $client
     ) {
