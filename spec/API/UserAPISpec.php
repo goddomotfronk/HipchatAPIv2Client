@@ -95,6 +95,18 @@ class UserAPISpec extends ObjectBehavior
         $this->privateMessageUser('123456', $message);
     }
 
+    function it_will_return_empty_array_if_chat_history_is_empty(
+        ClientInterface $client
+    ) {
+        $client->get('/v2/user/123456/history/latest', [])
+            ->willReturn([
+                'items' => []
+            ]);
+
+        $this->getRecentPrivateChatHistory('123456', [])
+            ->shouldReturn([]);
+    }
+
     protected function getTestResponse()
     {
         return array(
