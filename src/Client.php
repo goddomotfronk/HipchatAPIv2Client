@@ -33,8 +33,7 @@ class Client implements ClientInterface
         if ($browser === null) {
             $client = new Curl();
             $this->browser = new Browser($client);
-        }
-        else {
+        } else {
             $this->browser = $browser;
         }
     }

@@ -62,7 +62,7 @@ class User implements UserInterface
         if (isset($json['links'])) {
             $this->links = $json['links'];
         }
-        if(isset($json['xmpp_jid'])) {
+        if (isset($json['xmpp_jid'])) {
             $this->xmppJid = $json['xmpp_jid'];
             $this->deleted = $json['is_deleted'];
             $this->lastActive = $json['last_active'];
