@@ -44,13 +44,7 @@ class Client implements ClientInterface
     public function get($resource, $query = array())
     {
         $url = $this->baseUrl . $resource;
-        if (count($query) > 0) {
-            $url .= "?";
-        }
-
-        foreach ($query as $key => $value) {
-            $url .= "$key=$value&";
-        }
+        $url = $this->addQuery($query, $url);
 
         $headers = array("Authorization" => $this->auth->getCredential());
 
@@ -60,9 +54,7 @@ class Client implements ClientInterface
             throw new RequestException($e->getMessage());
         }
 
-        if ($this->browser->getLastResponse()->getStatusCode() > 299) {
-            throw new RequestException(json_decode($this->browser->getLastResponse()->getContent(), true));
-        }
+        $this->checkBrowserResponse();
 
         return json_decode($response->getContent(), true);
     }
@@ -85,9 +77,7 @@ class Client implements ClientInterface
             throw new RequestException($e->getMessage());
         }
 
-        if ($this->browser->getLastResponse()->getStatusCode() > 299) {
-            throw new RequestException(json_decode($this->browser->getLastResponse()->getContent(), true));
-        }
+        $this->checkBrowserResponse();
 
         return json_decode($response->getContent(), true);
     }
@@ -109,9 +99,7 @@ class Client implements ClientInterface
             throw new RequestException($e->getMessage());
         }
 
-        if ($this->browser->getLastResponse()->getStatusCode() > 299) {
-            throw new RequestException(json_decode($this->browser->getLastResponse()->getContent(), true));
-        }
+        $this->checkBrowserResponse();
 
         return json_decode($response->getContent(), true);
     }
@@ -133,10 +121,39 @@ class Client implements ClientInterface
             throw new RequestException($e->getMessage());
         }
 
+        $this->checkBrowserResponse();
+
+        return json_decode($response->getContent(), true);
+    }
+
+    /**
+     * Add query string if necessary
+     *
+     * @param $query
+     * @param $url
+     * @return string
+     */
+    private function addQuery($query, $url): string
+    {
+        if (count($query) > 0) {
+            $url .= "?";
+        }
+
+        foreach ($query as $key => $value) {
+            $url .= "$key=$value&";
+        }
+        return $url;
+    }
+
+    /**
+     * Checks if response was successful
+     *
+     * @throws RequestException
+     */
+    private function checkBrowserResponse(): void
+    {
         if ($this->browser->getLastResponse()->getStatusCode() > 299) {
             throw new RequestException(json_decode($this->browser->getLastResponse()->getContent(), true));
         }
-
-        return json_decode($response->getContent(), true);
     }
 }
