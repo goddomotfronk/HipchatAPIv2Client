@@ -133,7 +133,7 @@ class Client implements ClientInterface
      * @param $url
      * @return string
      */
-    private function addQuery($query, $url): string
+    private function addQuery($query, $url)
     {
         if (count($query) > 0) {
             $url .= "?";
@@ -150,7 +150,7 @@ class Client implements ClientInterface
      *
      * @throws RequestException
      */
-    private function checkBrowserResponse(): void
+    private function checkBrowserResponse()
     {
         if ($this->browser->getLastResponse()->getStatusCode() > 299) {
             throw new RequestException(json_decode($this->browser->getLastResponse()->getContent(), true));
