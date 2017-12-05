@@ -16,6 +16,16 @@ class WebhookSpec extends ObjectBehavior
         $this->shouldImplement(WebhookInterface::class);
     }
 
+    function it_has_default_values_with_specific_types()
+    {
+        $this->getUrl()->shouldBeString();
+        $this->getPattern()->shouldBeString();
+        $this->getEvent()->shouldBeString();
+        $this->getName()->shouldBeString();
+        $this->getLinks()->shouldBeArray();
+
+    }
+
     function it_parses_full_json()
     {
         $json = array(
