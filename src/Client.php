@@ -41,14 +41,6 @@ class Client implements ClientInterface
     /**
      * @inheritdoc
      */
-    public function setBaseUrl($url)
-    {
-        $this->baseUrl = $url;
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function get($resource, $query = array())
     {
         $url = $this->baseUrl . $resource;
