@@ -56,7 +56,7 @@ class Webhook implements WebhookInterface
             $this->pattern = '';
             $this->event = 'room_message';
             $this->name = '';
-            $this->links = '';
+            $this->links = [];
         }
     }
 

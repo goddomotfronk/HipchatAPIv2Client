@@ -100,7 +100,7 @@ interface UserAPIInterface
      * @param string $userId The id, email address, or mention name (beginning with an '@') of the user
      * @param string $size The size to retrieve ("small" or "big")
      *
-     * @return string
+     * @return array
      */
     public function getPhoto($userId, $size);
 }

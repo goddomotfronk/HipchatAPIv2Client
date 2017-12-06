@@ -13,16 +13,6 @@ namespace SolutionDrive\HipchatAPIv2Client;
 interface ClientInterface
 {
     /**
-     * Set the base URL for the requests. Defaults to the public API
-     *     but this allows it to work with internal implementations too
-     *
-     * @param string $url URL to the HipChat server endpoint
-     *
-     * @deprecated Use constructor to change default baseUrl instead, will be removed in 2.0
-     */
-    public function setBaseUrl($url);
-
-    /**
      * Common get request for all API calls
      *
      * @param string $resource The path to the resource wanted. For example v2/room

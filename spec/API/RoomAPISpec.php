@@ -2,6 +2,8 @@
 
 namespace spec\SolutionDrive\HipchatAPIv2Client\API;
 
+use SolutionDrive\HipchatAPIv2Client\API\RoomAPI;
+use SolutionDrive\HipchatAPIv2Client\API\RoomAPIInterface;
 use SolutionDrive\HipchatAPIv2Client\ClientInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\MessageInterface;
 use SolutionDrive\HipchatAPIv2Client\Model\RoomInterface;
@@ -18,7 +20,9 @@ class RoomAPISpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('SolutionDrive\HipchatAPIv2Client\API\RoomAPI');
+        $this->shouldHaveType(RoomAPI::class);
+
+        $this->shouldImplement(RoomAPIInterface::class);
     }
 
     function it_gets_rooms(ClientInterface $client)
