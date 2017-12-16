@@ -64,11 +64,15 @@ API documentation. Some examples:
 
 The following list shows methods available and missing:
 
-#### Add ons
-- [ ] Get addon installable data
-- [ ] Create addon link
-- [ ] Invoke addon link
-- [ ] Delete addon link
+#### Add ons / Integrations
+- [ ] [Get addon installable data](https://www.hipchat.com/docs/apiv2/method/get_integration_installable_data)
+- [ ] [Create addon link](https://www.hipchat.com/docs/apiv2/method/create_integration_link)
+- [ ] [Invoke addon link](https://www.hipchat.com/docs/apiv2/method/invoke_integration_link)
+- [ ] [Delete addon link](https://www.hipchat.com/docs/apiv2/method/delete_integration_link)
+- [ ] [Addon ui update](https://www.hipchat.com/docs/apiv2/method/addon_ui_update)
+- [ ] [Room addon ui update](https://www.hipchat.com/docs/apiv2/method/room_addon_ui_update)
+- [ ] [User in room addon ui update](https://www.hipchat.com/docs/apiv2/method/user_in_room_addon_ui_update)
+- [ ] [User addon ui update](https://www.hipchat.com/docs/apiv2/method/user_in_room_addon_ui_update)
 
 #### Capabilities
 - [ ] Get capabilities
