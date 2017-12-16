@@ -16,6 +16,19 @@ class AddonSpec extends ObjectBehavior
         $this->shouldImplement(AddonInterface::class);
     }
 
+    public function it_encodes_to_json()
+    {
+        $this->setTarget('https://example.com/target');
+        $this->setTTL(20);
+        $this->toJson()
+            ->shouldReturn(
+                [
+                    'target' => 'https://example.com/target',
+                    'ttl'    => 20
+                ]
+            );
+    }
+
     public function it_set_and_get_target()
     {
         $this->setTarget('https://example.com/target');
