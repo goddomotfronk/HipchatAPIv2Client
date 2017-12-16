@@ -42,4 +42,11 @@ interface AddonInterface
      * @return string
      */
     public function getToken();
+
+    /**
+     * Serializes Addon object
+     *
+     * @return array
+     */
+    public function toJson();
 }
