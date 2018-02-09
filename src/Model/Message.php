@@ -81,6 +81,24 @@ class Message implements MessageInterface
     /**
      * @inheritdoc
      */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function setColor($color)
     {
         $this->color = $color;
@@ -144,6 +162,24 @@ class Message implements MessageInterface
     public function getMessageFormat()
     {
         return $this->messageFormat;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 
     /**
