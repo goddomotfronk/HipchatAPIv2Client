@@ -2,9 +2,11 @@
 
 namespace spec\SolutionDrive\HipchatAPIv2Client\Model;
 
-use SolutionDrive\HipchatAPIv2Client\Model\Message;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use SolutionDrive\HipchatAPIv2Client\Model\File;
+use SolutionDrive\HipchatAPIv2Client\Model\FileInterface;
+use SolutionDrive\HipchatAPIv2Client\Model\Message;
 use SolutionDrive\HipchatAPIv2Client\Model\MessageInterface;
 
 class MessageSpec extends ObjectBehavior
@@ -26,7 +28,14 @@ class MessageSpec extends ObjectBehavior
             'message' => 'Hello World',
             'message_format' => 'html',
             'date' => '2014-02-10 10:02:10',
+            'file' => array(
+                'name' => 'test.png',
+                'size' => 123,
+                'thumb_url' => 'http://example.com/test_thumb.png',
+                'url' => 'http://example.com/test.png',
+            ),
         );
+
         $this->parseJson($json);
     }
 
@@ -34,6 +43,8 @@ class MessageSpec extends ObjectBehavior
     {
         $this->setColor(Message::COLOR_GRAY);
         $this->setMessage('This is a test!!');
+
+        // Note that if there is no file, the 'file' key should not exist (as per API docs)
         $this->toJson()->shouldReturn(array(
             'id' => null,
             'from' => '',
@@ -87,5 +98,21 @@ class MessageSpec extends ObjectBehavior
     {
         $this->setFrom('test from')->shouldReturn($this);
         $this->getFrom()->shouldReturn('test from');
+    }
+
+    function its_file_is_mutable()
+    {
+        $file = new File(array(
+            'name' => 'test.png',
+            'size' => 123,
+            'thumb_url' => 'http://example.com/test_thumb.png',
+            'url' => 'http://example.com/test.png',
+        ));
+
+        $this->setFile($file)->shouldReturn($this);
+
+        $result = $this->getFile();
+        $result->shouldReturn($file);
+        $result->shouldImplement(FileInterface::class);
     }
 }

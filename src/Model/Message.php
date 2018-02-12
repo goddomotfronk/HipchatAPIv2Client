@@ -2,6 +2,9 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\Model;
 
+use SolutionDrive\HipchatAPIv2Client\Model\File;
+use SolutionDrive\HipchatAPIv2Client\Model\FileInterface;
+
 class Message implements MessageInterface
 {
     protected $id = null;
@@ -17,6 +20,8 @@ class Message implements MessageInterface
     protected $date = null;
 
     protected $from = '';
+
+    protected $file = null;
 
     const COLOR_YELLOW = 'yellow';
     const COLOR_GREEN = 'green';
@@ -55,6 +60,7 @@ class Message implements MessageInterface
         $this->notify = isset($json['notify']) ? $json['notify'] : false;
         $this->messageFormat = isset($json['message_format']) ? $json['message_format'] : 'html';
         $this->date = $json['date'];
+        $this->file = isset($json['file']) ? new File($json['file']) : null;
     }
 
     /**
@@ -70,6 +76,10 @@ class Message implements MessageInterface
         $json['notify'] = $this->notify;
         $json['message_format'] = $this->messageFormat;
         $json['date'] = $this->date;
+
+        if ($this->file) {
+            $json['file'] = $this->file->toJson();
+        }
 
         return $json;
     }
@@ -198,5 +208,23 @@ class Message implements MessageInterface
     public function getFrom()
     {
         return $this->from;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setFile(FileInterface $file)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getFile()
+    {
+        return $this->file;
     }
 }

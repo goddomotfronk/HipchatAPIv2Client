@@ -22,9 +22,9 @@ interface MessageInterface
     public function toJson();
 
     /**
-     * Sets id message
+     * Sets id of message
      *
-     * @param string $id Id message
+     * @param string $id Id of message
      *
      * @return \SolutionDrive\HipchatAPIv2Client\Model\Message
      */
@@ -133,4 +133,20 @@ interface MessageInterface
      * @return string|array
      */
     public function getFrom();
+
+    /**
+     * Sets file for message
+     *
+     * @param FileInterface $file The file
+     *
+     * @return \SolutionDrive\HipchatAPIv2Client\Model\FileInterface
+     */
+    public function setFile(FileInterface $file);
+
+    /**
+     * Gets file for message
+     *
+     * @return null|\SolutionDrive\HipchatAPIv2Client\Model\FileInterface
+     */
+    public function getFile();
 }
