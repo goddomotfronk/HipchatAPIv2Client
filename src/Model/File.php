@@ -31,8 +31,11 @@ class File implements FileInterface
 
         $this->name = $json['name'];
         $this->size = (int) $json['size'];
-        $this->thumbUrl = $json['thumb_url'];
         $this->url = $json['url'];
+
+        if (isset($json['thumb_url'])) {
+            $this->thumbUrl = $json['thumb_url'];
+        }
     }
 
     /**
@@ -43,9 +46,12 @@ class File implements FileInterface
         $json = array(
             'name' => $this->name,
             'size' => $this->size,
-            'thumb_url' => $this->thumbUrl,
             'url' => $this->url,
         );
+
+        if ($this->thumbUrl) {
+            $json['thumb_url'] = $this->thumbUrl;
+        }
 
         return $json;
     }

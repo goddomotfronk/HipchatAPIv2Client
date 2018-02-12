@@ -32,10 +32,10 @@ class FileSpec extends ObjectBehavior
         $this->setName('test.pdf');
         $this->setUrl('http://example.com/test.pdf');
 
+        // Note that if the file is not an image, there will be no 'thumb_url' key
         $this->toJson()->shouldReturn(array(
             'name' => 'test.pdf',
             'size' => 0,
-            'thumb_url' => '',
             'url' => 'http://example.com/test.pdf',
         ));
     }
