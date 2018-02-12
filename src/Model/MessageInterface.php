@@ -22,6 +22,22 @@ interface MessageInterface
     public function toJson();
 
     /**
+     * Sets id message
+     *
+     * @param string $id Id message
+     *
+     * @return \SolutionDrive\HipchatAPIv2Client\Model\Message
+     */
+    public function setId($id);
+
+    /**
+     * Returns id for message
+     *
+     * @return string
+     */
+    public function getId();
+
+    /**
      * Sets background color for message
      *
      * @param string $color Background color for message
@@ -85,6 +101,22 @@ interface MessageInterface
      * @return string
      */
     public function getMessageFormat();
+
+    /**
+     * Sets date for message
+     *
+     * @param string $date The date
+     *
+     * @return \SolutionDrive\HipchatAPIv2Client\Model\Message
+     */
+    public function setDate($date);
+
+    /**
+     * Gets date for message
+     *
+     * @return string
+     */
+    public function getDate();
 
     /**
      * Sets a label to be shown in addition to the sender's name
