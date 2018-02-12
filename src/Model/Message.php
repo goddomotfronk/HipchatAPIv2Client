@@ -4,7 +4,6 @@ namespace SolutionDrive\HipchatAPIv2Client\Model;
 
 class Message implements MessageInterface
 {
-
     protected $id = null;
 
     protected $color;
@@ -18,7 +17,6 @@ class Message implements MessageInterface
     protected $date = null;
 
     protected $from = '';
-
 
     const COLOR_YELLOW = 'yellow';
     const COLOR_GREEN = 'green';
@@ -75,7 +73,6 @@ class Message implements MessageInterface
         $json['date'] = $this->date;
 
         return $json;
-
     }
 
     /**
@@ -102,6 +99,7 @@ class Message implements MessageInterface
     public function setColor($color)
     {
         $this->color = $color;
+
         return $this;
     }
 
@@ -119,6 +117,7 @@ class Message implements MessageInterface
     public function setMessage($message)
     {
         $this->message = $message;
+
         return $this;
     }
 
@@ -136,6 +135,7 @@ class Message implements MessageInterface
     public function setNotify($notify)
     {
         $this->notify = $notify;
+
         return $this;
     }
 
@@ -153,6 +153,7 @@ class Message implements MessageInterface
     public function setMessageFormat($messageFormat)
     {
         $this->messageFormat = $messageFormat;
+
         return $this;
     }
 
@@ -188,6 +189,7 @@ class Message implements MessageInterface
     public function setFrom($from)
     {
         $this->from = $from;
+
         return $this;
     }
 
