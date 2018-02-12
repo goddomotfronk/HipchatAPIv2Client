@@ -38,7 +38,7 @@ class Message implements MessageInterface
         } else {
             $this->color = self::COLOR_YELLOW;
             $this->messageFormat = self::FORMAT_HTML;
-            $this->message = "";
+            $this->message = '';
             $this->notify = false;
         }
     }
@@ -52,11 +52,10 @@ class Message implements MessageInterface
         $this->from = is_array($json['from']) ? $json['from']['name'] : $json['from'];
         $this->message = $json['message'];
         $this->color = isset($json['color']) ? $json['color'] : null;
-        $this->notify = $json['notify'];
+        $this->notify = isset($json['notify']) ? $json['notify'] : false;
         $this->messageFormat = isset($json['message_format']) ? $json['message_format'] : 'html';
         $this->date = $json['date'];
     }
-
 
     /**
      * @inheritdoc
