@@ -34,9 +34,22 @@ class MessageSpec extends ObjectBehavior
     {
         $this->setColor(Message::COLOR_GRAY);
         $this->setMessage('This is a test!!');
-        $this->toJson()->shouldReturn(
-            array("id" => null, "from" => '', "color" => "gray", "message" => "This is a test!!", 'notify' => false, 'message_format' => 'html', 'date' => null)
-        );
+        $this->toJson()->shouldReturn(array(
+            'id' => null,
+            'from' => '',
+            'color' => 'gray',
+            'message' => 'This is a test!!',
+            'notify' => false,
+            'message_format' => 'html',
+            'date' => null,
+        ));
+    }
+
+    function its_id_is_mutable()
+    {
+        $id = '654321';
+        $this->setId($id)->shouldReturn($this);
+        $this->getId()->shouldReturn($id);
     }
 
     function its_color_is_mutable()
@@ -61,6 +74,13 @@ class MessageSpec extends ObjectBehavior
     {
         $this->setMessageFormat(Message::FORMAT_TEXT)->shouldReturn($this);
         $this->getMessageFormat()->shouldReturn(Message::FORMAT_TEXT);
+    }
+
+    function its_date_is_mutable()
+    {
+        $date = date('c');
+        $this->setFrom($date)->shouldReturn($this);
+        $this->getFrom()->shouldReturn($date);
     }
 
     function its_from_is_mutable()
