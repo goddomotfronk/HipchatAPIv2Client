@@ -139,7 +139,7 @@ interface MessageInterface
      *
      * @param FileInterface $file The file
      *
-     * @return \SolutionDrive\HipchatAPIv2Client\Model\FileInterface
+     * @return \SolutionDrive\HipchatAPIv2Client\Model\Message
      */
     public function setFile(FileInterface $file);
 
