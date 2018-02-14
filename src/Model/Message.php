@@ -2,9 +2,11 @@
 
 namespace SolutionDrive\HipchatAPIv2Client\Model;
 
+use SolutionDrive\HipchatAPIv2Client\Model\File;
+use SolutionDrive\HipchatAPIv2Client\Model\FileInterface;
+
 class Message implements MessageInterface
 {
-
     protected $id = null;
 
     protected $color;
@@ -19,6 +21,7 @@ class Message implements MessageInterface
 
     protected $from = '';
 
+    protected $file = null;
 
     const COLOR_YELLOW = 'yellow';
     const COLOR_GREEN = 'green';
@@ -40,7 +43,7 @@ class Message implements MessageInterface
         } else {
             $this->color = self::COLOR_YELLOW;
             $this->messageFormat = self::FORMAT_HTML;
-            $this->message = "";
+            $this->message = '';
             $this->notify = false;
         }
     }
@@ -54,11 +57,11 @@ class Message implements MessageInterface
         $this->from = is_array($json['from']) ? $json['from']['name'] : $json['from'];
         $this->message = $json['message'];
         $this->color = isset($json['color']) ? $json['color'] : null;
-        $this->notify = $json['notify'];
+        $this->notify = isset($json['notify']) ? $json['notify'] : false;
         $this->messageFormat = isset($json['message_format']) ? $json['message_format'] : 'html';
         $this->date = $json['date'];
+        $this->file = isset($json['file']) ? new File($json['file']) : null;
     }
-
 
     /**
      * @inheritdoc
@@ -74,8 +77,11 @@ class Message implements MessageInterface
         $json['message_format'] = $this->messageFormat;
         $json['date'] = $this->date;
 
-        return $json;
+        if ($this->file) {
+            $json['file'] = $this->file->toJson();
+        }
 
+        return $json;
     }
 
     /**
@@ -102,6 +108,7 @@ class Message implements MessageInterface
     public function setColor($color)
     {
         $this->color = $color;
+
         return $this;
     }
 
@@ -119,6 +126,7 @@ class Message implements MessageInterface
     public function setMessage($message)
     {
         $this->message = $message;
+
         return $this;
     }
 
@@ -136,6 +144,7 @@ class Message implements MessageInterface
     public function setNotify($notify)
     {
         $this->notify = $notify;
+
         return $this;
     }
 
@@ -153,6 +162,7 @@ class Message implements MessageInterface
     public function setMessageFormat($messageFormat)
     {
         $this->messageFormat = $messageFormat;
+
         return $this;
     }
 
@@ -188,6 +198,7 @@ class Message implements MessageInterface
     public function setFrom($from)
     {
         $this->from = $from;
+
         return $this;
     }
 
@@ -197,5 +208,23 @@ class Message implements MessageInterface
     public function getFrom()
     {
         return $this->from;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setFile(FileInterface $file)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getFile()
+    {
+        return $this->file;
     }
 }
