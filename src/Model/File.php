@@ -25,7 +25,7 @@ class File implements FileInterface
      */
     public function parseJson($json)
     {
-        if (! $json) {
+        if (!$json) {
             return;
         }
 
