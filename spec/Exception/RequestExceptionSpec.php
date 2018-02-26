@@ -11,13 +11,11 @@ class RequestExceptionSpec extends ObjectBehavior
 {
     function let()
     {
-        $response = array('error' => array('code' => 404, 'message' => 'Room not found', 'type' => 'Not found'));
-        $this->beConstructedWith($response);
+        $this->beConstructedWith('Room not found', 404, 'Not found');
     }
     function it_is_initializable()
     {
         $this->shouldHaveType(RequestException::class);
-
         $this->shouldImplement(RequestExceptionInterface::class);
     }
 
