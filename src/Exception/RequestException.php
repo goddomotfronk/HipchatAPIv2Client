@@ -24,10 +24,27 @@ class RequestException extends \Exception implements RequestExceptionInterface
      */
     public function __construct($response)
     {
-        $error = $response['error'];
-        $this->responseCode = $error['code'];
-        $this->message = $error['message'];
-        $this->type = $error['type'];
+        $message = '';
+        $code = null;
+        $type = null;
+        if (is_string($response)) {
+            $message = $response;
+        } elseif (is_array($response)) {
+            $error = isset($response['error']) ? $response['error'] : '';
+            if (isset($error['code'])) {
+                $code = $error['code'];
+            }
+            if (isset($error['message'])) {
+                $message = $error['message'];
+            }
+            if (isset($error['type'])) {
+                $type = $error['type'];
+            }
+        }
+
+        $this->responseCode = $code;
+        $this->type = $type;
+        parent::__construct($message, $code);
     }
 
     /**
