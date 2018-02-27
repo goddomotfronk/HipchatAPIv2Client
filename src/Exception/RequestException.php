@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gorkalaucirica
- * Date: 09/07/14
- * Time: 12:33
- */
 
 namespace SolutionDrive\HipchatAPIv2Client\Exception;
 
+use Throwable;
 
 class RequestException extends \Exception implements RequestExceptionInterface
 {
@@ -20,14 +15,16 @@ class RequestException extends \Exception implements RequestExceptionInterface
     /**
      * Request exception constructor
      *
-     * @param string $response json_decoded array with the error response given by the server
+     * @param string $message
+     * @param int $code
+     * @param string $type
+     * @param Throwable|null $previous
      */
-    public function __construct($response)
+    public function __construct($message = "", $code = 0, $type = '', Throwable $previous = null)
     {
-        $error = $response['error'];
-        $this->responseCode = $error['code'];
-        $this->message = $error['message'];
-        $this->type = $error['type'];
+        $this->responseCode = $code;
+        $this->type = $type;
+        parent::__construct($message, $code, $previous);
     }
 
     /**

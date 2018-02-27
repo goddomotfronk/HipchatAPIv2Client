@@ -51,7 +51,7 @@ class Client implements ClientInterface
         try {
             $response = $this->browser->get($url, $headers);
         } catch (\Buzz\Exception\ClientException $e) {
-            throw new RequestException($e->getMessage());
+            throw new RequestException($e->getMessage(), $e->getCode(), '', $e);
         }
 
         $this->checkBrowserResponse();
@@ -74,7 +74,7 @@ class Client implements ClientInterface
         try {
             $response = $this->browser->post($url, $headers, json_encode($content));
         } catch (\Buzz\Exception\ClientException $e) {
-            throw new RequestException($e->getMessage());
+            throw new RequestException($e->getMessage(), $e->getCode(), '', $e);
         }
 
         $this->checkBrowserResponse();
@@ -96,7 +96,7 @@ class Client implements ClientInterface
         try {
             $response = $this->browser->put($url, $headers, json_encode($content));
         } catch (\Buzz\Exception\ClientException $e) {
-            throw new RequestException($e->getMessage());
+            throw new RequestException($e->getMessage(), $e->getCode(), '', $e);
         }
 
         $this->checkBrowserResponse();
@@ -118,7 +118,7 @@ class Client implements ClientInterface
         try {
             $response = $this->browser->delete($url, $headers);
         } catch (\Buzz\Exception\ClientException $e) {
-            throw new RequestException($e->getMessage());
+            throw new RequestException($e->getMessage(), $e->getCode(), '', $e);
         }
 
         $this->checkBrowserResponse();
@@ -153,7 +153,11 @@ class Client implements ClientInterface
     private function checkBrowserResponse()
     {
         if ($this->browser->getLastResponse()->getStatusCode() > 299) {
-            throw new RequestException(json_decode($this->browser->getLastResponse()->getContent(), true));
+            $response = json_decode($this->browser->getLastResponse()->getContent(), true);
+            $code = isset($response['error']['code']) ? $response['error']['code'] : 0;
+            $message = isset($response['error']['message']) ? $response['error']['message'] : '';
+            $type = isset($response['error']['type']) ? $response['error']['type'] : '';
+            throw new RequestException($message, $code, $type);
         }
     }
 }
