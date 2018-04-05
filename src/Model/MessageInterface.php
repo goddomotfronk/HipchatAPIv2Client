@@ -149,4 +149,20 @@ interface MessageInterface
      * @return null|\SolutionDrive\HipchatAPIv2Client\Model\FileInterface
      */
     public function getFile();
+
+    /**
+     * Set message card
+     *
+     * @param CardInterface $card
+     *
+     * @return \SolutionDrive\HipchatAPIv2Client\Model\CardInterface
+     */
+    public function setFile(FileInterface $file);
+
+    /**
+     * Gets file for message
+     *
+     * @return null|\SolutionDrive\HipchatAPIv2Client\Model\FileInterface
+     */
+    public function getFile();
 }

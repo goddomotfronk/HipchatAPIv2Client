@@ -23,6 +23,8 @@ class Message implements MessageInterface
 
     protected $file = null;
 
+    protected $card = null;
+
     const COLOR_YELLOW = 'yellow';
     const COLOR_GREEN = 'green';
     const COLOR_RED = 'red';
@@ -226,5 +228,23 @@ class Message implements MessageInterface
     public function getFile()
     {
         return $this->file;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getCard()
+    {
+        return $this->card;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setCard($card)
+    {
+        $this->card = $card;
+
+        return $this;
     }
 }
